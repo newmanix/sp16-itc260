@@ -35,19 +35,11 @@ class News_model extends CI_Model {
 
         if($this->db->insert('sp16_news', $data))
         {//good data, show record!
-            //get id number of last inserted record
-            $id = $this->db->insert_id();
-
-            $query = $this->db->get_where('sp16_news', array('id' => $id));
-            return $query->row_array();
- 
+            return $slug;
         }else{//bad data?  feedback!
-            echo "Oh oh!!";
-            die;
+            return false;
         }
-        
-        
-        //return $this->db->insert('sp16_news', $data);
+
     }
 
 }
